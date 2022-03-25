@@ -1,0 +1,29 @@
+<ng-container *ngIf="authors && authors.length>0">
+    <div *ngFor="let author of authors">
+        <div class="container">
+            <div class="content">
+                <div class="heading">
+                    <h1>{{author.name}}</h1>
+                    <button *ngIf="favoriteAuthorMap[author._id]" (click)="removeFavoriteAuthor(author)" class="remove-button">Remove from  Favorite</button>
+                    <button *ngIf="!favoriteAuthorMap[author._id]" (click)="addFavoriteAuthor(author)" class="pagination-button">Add to  Favorite</button>
+                </div>
+              <h3>{{author.bio}}</h3>
+              <a  target="_blank"  [href]="author.link">{{author.link}}</a>
+
+            </div>
+            <div class="flap"></div>
+        </div>
+      </div>
+
+      <div class="pagination-container">
+            <button [disabled]="page == 1" (click)="onPagination(page-1)" class="pagination-button">
+                Previous
+            </button>
+            <p class="page-number">
+                    {{page}}
+            </p>
+            <button [disabled]="page >= maxPage" (click)="onPagination(page+1)" class="pagination-button">
+                Next
+            </button>
+      </div>
+</ng-container>
