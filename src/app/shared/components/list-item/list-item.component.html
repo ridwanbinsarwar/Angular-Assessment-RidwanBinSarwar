@@ -27,3 +27,7 @@
             </button>
       </div>
 </ng-container>
+
+<ng-container *ngIf="authors && isFavAuthorList && authors.length==0">
+    <div style="text-align:center">Favourite author list is empty.</div>
+</ng-container> 
